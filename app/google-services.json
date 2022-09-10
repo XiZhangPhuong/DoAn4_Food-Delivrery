@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "255299921640",
+    "project_id": "food-delivery-doaan4",
+    "storage_bucket": "food-delivery-doaan4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255299921640:android:e0a4a38006c76d0f8b4b5d",
+        "android_client_info": {
+          "package_name": "com.example.fastfooddelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255299921640-6e77bjk55o7l0ic07von4934miebmc05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPqwKsV0z08thvsRl2-B8TYT6R3l6EyQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255299921640-6e77bjk55o7l0ic07von4934miebmc05.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

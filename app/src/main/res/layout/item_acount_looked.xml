@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="370dp"
+    android:layout_height="270dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="15dp"
+    android:backgroundTint="@color/teal_700"
+    android:background="@drawable/custom_photo"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:text="Tài khoản đã bị vô hiệu hóa" />
+
+    <TextView
+        android:id="@+id/textew3"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Nếu bạn nghĩ đây là nhầm lẫn.Vui lòng liên hệ với chúng tôi tại đây"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:text="0359203218"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"/>
+
+    <Button
+        android:id="@+id/btn_guikhangnghi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        app:backgroundTint="#03A9F4"
+        android:background="@drawable/custom"
+        android:text="Gửi kháng nghị"
+        android:textAllCaps="false"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="" />
+
+
+</LinearLayout>

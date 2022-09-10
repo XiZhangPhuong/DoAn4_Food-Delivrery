@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10sp"
+    tools:context=".Fragment.HomeFragment">
+        <RelativeLayout
+            android:id="@+id/rel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom"
+            android:backgroundTint="#B8B0B0">
+        <TextView
+            android:id="@+id/tv"
+            android:layout_marginLeft="6sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Personal information"
+            android:textSize="20sp"
+            android:textColor="#A028B5"/>
+
+                <ImageView
+                    android:id="@+id/img_photo_user"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_below="@id/tv"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginTop="0dp"
+                    android:paddingBottom="6sp"
+                    android:src="@drawable/ic_account_circle" />
+                <TextView
+            android:id="@+id/tv_name_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nguyen van a"
+            android:textSize="20sp"
+            android:layout_toRightOf="@id/img_photo_user"
+            android:layout_marginTop="30dp"
+            android:paddingStart="10sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/tv_phone_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0541236"
+            android:textSize="20sp"
+            android:layout_marginTop="6sp"
+            android:layout_toRightOf="@id/img_photo_user"
+            android:paddingStart="10sp"
+            android:layout_below="@id/tv_name_user"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/tv_id_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID: ipkd23423"
+            android:textSize="20sp"
+            android:layout_marginTop="6sp"
+            android:layout_toRightOf="@id/img_photo_user"
+            android:paddingStart="10sp"
+            android:layout_below="@id/tv_phone_user"
+            android:textColor="@color/black"/>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tcv_icon_user"
+            android:layout_width="346dp"
+            android:layout_height="222dp"
+            android:layout_below="@id/rel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25sp" />
+
+        <TextView
+            android:id="@+id/tv_yourorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tcv_icon_user"
+            android:layout_marginTop="30sp"
+            android:background="@drawable/custom_button"
+            android:gravity="center"
+            android:text="Your Order"
+            android:textSize="30sp" />
+        <TextView
+            android:id="@+id/tv_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_yourorder"
+            android:layout_marginTop="30sp"
+            android:textSize="30sp"
+            android:text="FeedBack"
+            android:gravity="center"
+            android:background="@drawable/custom_button"/>
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:textSize="30sp"
+            android:text="Log out"
+            android:textColor="@color/Purple"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50sp"/>
+
+</RelativeLayout>

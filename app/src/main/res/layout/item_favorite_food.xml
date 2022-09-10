@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="6sp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_favorite_photo"
+        android:layout_width="150sp"
+        android:scaleType="centerCrop"
+        android:layout_height="150sp"
+        android:src="@drawable/slide_2"/>
+
+    <TextView
+        android:id="@+id/tv_favorite_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:text="@string/app_name"
+        android:textColor="#DA0707"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp"
+        android:layout_toRightOf="@id/img_favorite_photo"/>
+    <TextView
+        android:id="@+id/tv_favorite_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:text="100000"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:layout_marginTop="60sp"
+        android:layout_toRightOf="@id/img_favorite_photo"/>
+
+    <ImageButton
+        android:id="@+id/imb_delete_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_favorite_price"
+        android:layout_alignParentEnd="true"
+        android:background="@color/white"
+        android:src="@drawable/ic_baseline_delete_24" />
+    <ImageButton
+        android:id="@+id/imb_add_cart_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_shopping_cart"
+        android:layout_below="@id/tv_favorite_price"
+        android:layout_toLeftOf="@+id/imb_delete_favorite"
+        android:layout_marginRight="20sp"
+        android:background="@color/white"/>
+</RelativeLayout>

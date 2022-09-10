@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="100sp"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20sp"
+    android:layout_marginRight="10sp"
+    android:layout_marginLeft="10sp"
+    android:background="@drawable/search_bg_custom"
+    android:elevation="2dp"
+    android:id="@+id/linear_layout">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_search_item"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher_background"/>
+    <TextView
+        android:id="@+id/tv_search_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pizza"
+        android:textSize="14sp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

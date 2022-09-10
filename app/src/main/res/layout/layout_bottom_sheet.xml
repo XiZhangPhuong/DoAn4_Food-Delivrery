@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="16sp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thong Tin Mon An"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16sp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10sp"
+            android:layout_toStartOf="@id/tv_inf_price"
+            android:text="Tong Tien"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_inf_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="100000VND"
+            android:textColor="@color/black"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_inf_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bim Bim"
+            android:layout_marginTop="16sp" />
+        <ImageView
+            android:id="@+id/imb_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_favorite_24"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_inf_photo"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="16sp"
+        android:scaleType="centerCrop"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:orientation="horizontal">
+        
+        <Button
+            android:id="@+id/btn_huy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#efefef"
+            android:text="Huy"
+            android:layout_marginEnd="10sp"
+            android:textColor="@color/black"/>
+        <Button
+            android:id="@+id/btn_xacnhan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/black"
+            android:text="Them gio hang"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>
