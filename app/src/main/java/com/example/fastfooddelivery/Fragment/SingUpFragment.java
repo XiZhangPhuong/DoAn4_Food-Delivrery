@@ -1,6 +1,6 @@
 package com.example.fastfooddelivery.Fragment;
 
-import static com.example.fastfooddelivery.TEMP.ranDomIDUser;
+
 import static com.example.fastfooddelivery.TEMP.showNotification;
 
 import android.app.ProgressDialog;
@@ -49,7 +49,7 @@ public class SingUpFragment extends Fragment {
         btn_singup = mView.findViewById(R.id.btnsingup);
 
 
-        getDataUserFromFireBase();
+       // getDataUserFromFireBase();
         btn_singup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +97,10 @@ public class SingUpFragment extends Fragment {
                     edt_password.setText("");
                     edt_conf.setText("");
                     LoginAndSingupActivity.viewPager2.setCurrentItem(0);
-                    showNotification1();
+                    //gui thong bao cho Nguoi Dung
+                    String title = "Xin chào! "+fullname.toUpperCase().toString();
+                    String mess = "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi";
+                    showNotification(getContext(),title,mess);
 
                 }
 //                if (TextUtils.isEmpty(fullname) ||TextUtils.isEmpty(phonenumber)||TextUtils.isEmpty(password)||TextUtils.isEmpty(confirm)

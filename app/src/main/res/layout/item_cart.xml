@@ -16,7 +16,7 @@
             android:layout_width="100sp"
             android:layout_height="100sp"
             android:layout_marginStart="20sp"
-            android:src="@drawable/slide_1"/>
+            android:src="@drawable/slide_1" />
 
         <TextView
             android:id="@+id/tv_name_cart"

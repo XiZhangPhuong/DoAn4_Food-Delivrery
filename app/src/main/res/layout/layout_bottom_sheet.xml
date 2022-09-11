@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thong Tin Mon An"
+        android:text="Thong Tin Món Ăn"
         android:textColor="@android:color/holo_red_light"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -25,7 +25,7 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="10sp"
             android:layout_toStartOf="@id/tv_inf_price"
-            android:text="Tong Tien"
+            android:text="Tổng tiền"
             android:textColor="@color/black"
             android:textStyle="bold" />
         <TextView
@@ -74,8 +74,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#efefef"
-            android:text="Huy"
+            android:text="Hủy"
             android:layout_marginEnd="10sp"
+            android:textAllCaps="false"
             android:textColor="@color/black"/>
         <Button
             android:id="@+id/btn_xacnhan"
@@ -83,7 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/black"
-            android:text="Them gio hang"
+            android:text="Thêm giỏ hàng"
+            android:textAllCaps="false"
             android:textColor="@color/white"/>
 
     </LinearLayout>
