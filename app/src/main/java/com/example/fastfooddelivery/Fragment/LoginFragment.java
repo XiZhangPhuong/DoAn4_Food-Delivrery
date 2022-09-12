@@ -1,8 +1,14 @@
 package com.example.fastfooddelivery.Fragment;
 
+import static com.example.fastfooddelivery.TEMP.checkConnectInternet;
+import static com.example.fastfooddelivery.TEMP.ranDomCODE;
+
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -14,15 +20,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.example.fastfooddelivery.Database.UserDatabase;
 import com.example.fastfooddelivery.LoginAndSingupActivity;
 import com.example.fastfooddelivery.MainActivity;
 import com.example.fastfooddelivery.Model.User;
 import com.example.fastfooddelivery.R;
 import com.example.fastfooddelivery.SharedPreferences.DataSharedPreferences;
 import com.example.fastfooddelivery.VerifyActivity;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,10 +57,16 @@ public class LoginFragment extends Fragment {
         edtusername = mView.findViewById(R.id.username);
         edtpassword = mView.findViewById(R.id.password);
         btnlogin = mView.findViewById(R.id.btnlogin);
+
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  loGinWithFireBase();
+
+                  if(checkConnectInternet(getContext())==true){
+                      loGinWithFireBase();
+                  }else{
+                      Toast.makeText(getContext(),"Không có kết nối INTERNET",Toast.LENGTH_LONG).show();
+                  }
 //                List<User> list = new ArrayList<>();
 //                list = UserDatabase.getInstance(getContext()).userDAO().getAllUser();
 //                for (User user : list){
@@ -101,11 +113,10 @@ public class LoginFragment extends Fragment {
                 for(DataSnapshot ds : snapshot.getChildren()){
                     User user = ds.getValue(User.class);
                     listuser.add(user);
-
                 }
                 if(checkUser(phone,pass)==true){
-                    User u = new User(phone,pass,null);
-                    DataSharedPreferences.setUser(getContext(),u,KEY_OBJECT);
+                   // User u = new User(phone,pass,null);
+                   // DataSharedPreferences.setUser(getContext(),u,KEY_OBJECT);
                     ProgressDialog dialog = new ProgressDialog(getContext());
                     dialog.setMessage("Please wait...");
                     dialog.show();
@@ -142,5 +153,7 @@ public class LoginFragment extends Fragment {
         }
         return false;
     }
+
+
 
 }

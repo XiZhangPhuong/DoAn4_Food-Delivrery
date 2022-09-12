@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#f2f2f2"
     android:orientation="vertical"
     tools:context=".Fragment.Cart.fragment_cart_isempty">
@@ -22,10 +22,11 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Giỏ hàng trống.Hihi"
+        android:text="Giỏ hàng của bạn trống"
         android:gravity="center"
+        android:fontFamily="monospace"
         android:textColor="@color/black"
-        android:textSize="25dp" />
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/btn_continue_cart"

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_tea"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.Home.Fragment_Home_1">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_700"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="@drawable/ic_return_30"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="120/12 Trường Chinh "
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:id="@+id/txt_andress" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom"
+            android:hint="Bạn muốn ăn gì hôm nay"
+            android:inputType="phone"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_user_24"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"/>
+
+
+        <ViewFlipper
+            android:id="@+id/quangcao"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+
+            android:layout_centerHorizontal="true" />
+
+    </LinearLayout>
+</ScrollView>

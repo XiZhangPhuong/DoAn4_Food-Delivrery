@@ -9,10 +9,14 @@
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/drawable/ic_return_24.xml" value="0.215" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/activity_cart.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/activity_cart1.xml" value="0.22826086956521738" />
-        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/activity_gio_hang.xml" value="0.264" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/activity_gio_hang.xml" value="0.1" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/activity_history.xml" value="0.22826086956521738" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/activity_intro.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/activity_login_and_singup.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/activity_update_password.xml" value="0.22826086956521738" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/activity_verify.xml" value="0.22826086956521738" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/fragment__home_1.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/fragment_cart.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/fragment_cart_empty.xml" value="0.29683698296836986" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/fragment_cart_isempty.xml" value="0.22826086956521738" />
@@ -23,10 +27,17 @@
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/fragment_singup.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_acount_looked.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_cart.xml" value="0.22826086956521738" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_cart_2.xml" value="0.22826086956521738" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_cart_3.xml" value="0.25" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_category.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_favorite_food.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_giohang.xml" value="0.22826086956521738" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_notification.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_recommend_food.xml" value="0.22826086956521738" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_recommend_food1.xml" value="0.22826086956521738" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/item_user_icon.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.22826086956521738" />
+        <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/layout/progress_bar.xml" value="0.22826086956521738" />
         <entry key="..\:/FastFoodDelivery/FastFoodDelivery/app/src/main/res/menu/bottom_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Tincode/AndroidTutorial/FastFoodDelivery/app/src/main/res/drawable/custom.xml" value="0.27447916666666666" />
         <entry key="..\:/Tincode/AndroidTutorial/FastFoodDelivery/app/src/main/res/font/akronim.xml" value="0.28854166666666664" />
@@ -52,5 +63,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22826086956521738" />
+      </ProjectState>
+    </option>
   </component>
 </project>

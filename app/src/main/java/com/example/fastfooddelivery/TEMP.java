@@ -4,9 +4,14 @@ import static com.example.fastfooddelivery.Dialog.showNotification.CHANNEL_1_ID;
 
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.fastfooddelivery.Model.Notification;
 
@@ -18,7 +23,7 @@ public class TEMP {
     public static List<Notification> listNoti = new ArrayList<>();
     public static NotificationManagerCompat notificationManagerCompat;
 
-    public static int ranDomIDUser(){
+    public static int ranDomCODE(){
         Random random = new Random();
         int s = (int) Math.floor(((Math.random() * 899999) + 100000));
         return s;
@@ -38,6 +43,18 @@ public class TEMP {
         MediaPlayer mediaPlayer = MediaPlayer.create(context,R.raw.amnthanh);
         mediaPlayer.start();
     }
+
+
+    public static boolean checkConnectInternet(Context context){
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        }
+        return false;
+    }
+
+
 
 
 

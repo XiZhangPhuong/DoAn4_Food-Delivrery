@@ -1,5 +1,8 @@
 package com.example.fastfooddelivery;
 
+import static com.example.fastfooddelivery.Fragment.LoginFragment.dataUser;
+import static com.example.fastfooddelivery.TEMP.ranDomCODE;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -12,9 +15,13 @@ import android.view.View;
 
 import com.example.fastfooddelivery.Activity.CartActivity;
 import com.example.fastfooddelivery.Adapter.ViewPagerAdapter;
+import com.example.fastfooddelivery.Model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -34,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setBackground(null);
         bottomNavigationView.getMenu().getItem(2).setEnabled(false);
         viewPager2.setUserInputEnabled(false);
+
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -82,4 +90,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

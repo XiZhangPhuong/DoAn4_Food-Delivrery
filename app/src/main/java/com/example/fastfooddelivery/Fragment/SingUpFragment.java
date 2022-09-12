@@ -1,6 +1,8 @@
 package com.example.fastfooddelivery.Fragment;
 
 
+import static com.example.fastfooddelivery.TEMP.checkConnectInternet;
+import static com.example.fastfooddelivery.TEMP.ranDomCODE;
 import static com.example.fastfooddelivery.TEMP.showNotification;
 
 import android.app.ProgressDialog;
@@ -16,7 +18,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.fastfooddelivery.Database.UserDatabase;
 import com.example.fastfooddelivery.LoginAndSingupActivity;
 import com.example.fastfooddelivery.MainActivity;
 import com.example.fastfooddelivery.Model.Notification;
@@ -53,55 +54,11 @@ public class SingUpFragment extends Fragment {
         btn_singup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fullname = edt_fullname.getText().toString().trim();
-                String phonenumber = edt_phonenumber.getText().toString().trim();
-                String password = edt_password.getText().toString().trim();
-                String confirm = edt_conf.getText().toString().trim();
-                if(edt_fullname.length()==0){
-                    Toast.makeText(getContext(),"Bạn chưa nhập họ tên",Toast.LENGTH_SHORT).show();
-                    edt_fullname.setError("Họ tên trống");
-                    return;
-                }
-                if(edt_phonenumber.length()==0){
-                    Toast.makeText(getContext(),"Bạn chưa nhập họ SĐT",Toast.LENGTH_SHORT).show();
-                    edt_phonenumber.setError("SDT trống");
-                    return;
-                }
-                if(edt_phonenumber.length()!=10){
-                    Toast.makeText(getContext(),"SĐT phải 10 số",Toast.LENGTH_SHORT).show();
-                    edt_phonenumber.setError("SĐT phải 10 số");
-                    return;
-                }
-                if(edt_password.length()==0){
-                    Toast.makeText(getContext(),"Bạn chưa nhập mật khẩu",Toast.LENGTH_SHORT).show();
-                    edt_password.setError("Mật khẩu trống");
-                }
-                if(edt_password.length() < 6){
-                    Toast.makeText(getContext(),"Mật khẩu phải lớn hơn 6 ký tự",Toast.LENGTH_SHORT).show();
-                    edt_password.setError("Nhập lại mật khẩu");
-                }
-                if(!edt_password.getText().toString().equals(edt_conf.getText().toString())){
-                    Toast.makeText(getContext(),"Mật khẩu không khớp",Toast.LENGTH_SHORT).show();
-                    edt_conf.setError("Mật khẩu không khớp");
-                }
-                if(checkPhoneNumber(phonenumber)==1){
-                    Toast.makeText(getContext(),"Tài khoản đã được đăng kí",Toast.LENGTH_SHORT).show();
-                    edt_phonenumber.setError("Vui lòng đổi SĐT");
-                    edt_phonenumber.setText("");
-                }else if(checkPhoneNumber(phonenumber)==0){
-                    User user = new User(fullname,phonenumber,password);
-                    dataUser.child(phonenumber).setValue(user);
-                    Toast.makeText(getContext(),"Đăng ký tài khoản thành công",Toast.LENGTH_LONG).show();
-                    edt_fullname.setText("");
-                    edt_phonenumber.setText("");
-                    edt_password.setText("");
-                    edt_conf.setText("");
-                    LoginAndSingupActivity.viewPager2.setCurrentItem(0);
-                    //gui thong bao cho Nguoi Dung
-                    String title = "Xin chào! "+fullname.toUpperCase().toString();
-                    String mess = "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi";
-                    showNotification(getContext(),title,mess);
 
+                if(checkConnectInternet(getContext())==true){
+                    signupWithFireBase();
+                }else{
+                    Toast.makeText(getContext(),"Không có kết nối INTERNET",Toast.LENGTH_LONG).show();
                 }
 //                if (TextUtils.isEmpty(fullname) ||TextUtils.isEmpty(phonenumber)||TextUtils.isEmpty(password)||TextUtils.isEmpty(confirm)
 //                ||fullname.length() < 10 ||phonenumber.length() !=10 || password.length() < 6 || confirm.length() < 6){
@@ -137,13 +94,60 @@ public class SingUpFragment extends Fragment {
                  // Push data realtime database
 
             }
-
-
-
         });
         return mView;
     }
-
+    private void signupWithFireBase(){
+        String fullname = edt_fullname.getText().toString().trim();
+        String phonenumber = edt_phonenumber.getText().toString().trim();
+        String password = edt_password.getText().toString().trim();
+        String confirm = edt_conf.getText().toString().trim();
+        if(edt_fullname.length()==0){
+            Toast.makeText(getContext(),"Bạn chưa nhập họ tên",Toast.LENGTH_SHORT).show();
+            edt_fullname.setError("Họ tên trống");
+            return;
+        }
+        if(edt_phonenumber.length()==0){
+            Toast.makeText(getContext(),"Bạn chưa nhập họ SĐT",Toast.LENGTH_SHORT).show();
+            edt_phonenumber.setError("SDT trống");
+            return;
+        }
+        if(edt_phonenumber.length()!=10){
+            Toast.makeText(getContext(),"SĐT phải 10 số",Toast.LENGTH_SHORT).show();
+            edt_phonenumber.setError("SĐT phải 10 số");
+            return;
+        }
+        if(edt_password.length()==0){
+            Toast.makeText(getContext(),"Bạn chưa nhập mật khẩu",Toast.LENGTH_SHORT).show();
+            edt_password.setError("Mật khẩu trống");
+        }
+        if(edt_password.length() < 6){
+            Toast.makeText(getContext(),"Mật khẩu phải lớn hơn 6 ký tự",Toast.LENGTH_SHORT).show();
+            edt_password.setError("Nhập lại mật khẩu");
+        }
+        if(!edt_password.getText().toString().equals(edt_conf.getText().toString())){
+            Toast.makeText(getContext(),"Mật khẩu không khớp",Toast.LENGTH_SHORT).show();
+            edt_conf.setError("Mật khẩu không khớp");
+        }
+        if(checkPhoneNumber(phonenumber)==1){
+            Toast.makeText(getContext(),"Tài khoản đã được đăng kí",Toast.LENGTH_SHORT).show();
+            edt_phonenumber.setError("Vui lòng đổi SĐT");
+            edt_phonenumber.setText("");
+        }else if(checkPhoneNumber(phonenumber)==0){
+            User user = new User(ranDomCODE(),fullname,phonenumber,password);
+            dataUser.child(phonenumber).setValue(user);
+            Toast.makeText(getContext(),"Đăng ký tài khoản thành công",Toast.LENGTH_LONG).show();
+            edt_fullname.setText("");
+            edt_phonenumber.setText("");
+            edt_password.setText("");
+            edt_conf.setText("");
+            LoginAndSingupActivity.viewPager2.setCurrentItem(0);
+            //gui thong bao cho Nguoi Dung
+            String title = "Xin chào! "+fullname.toUpperCase().toString();
+            String mess = "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi";
+            showNotification(getContext(),title,mess);
+        }
+    }
     public  int checkPhoneNumber(String phone){
         for(User user : listuser){
             if(user.getPhoneNumber().equals(phone)){
@@ -152,6 +156,7 @@ public class SingUpFragment extends Fragment {
         }
         return 0;
     }
+
 
        public List<User> getDataUserFromFireBase(){
            listuser = new ArrayList<>();
@@ -172,40 +177,6 @@ public class SingUpFragment extends Fragment {
         return listuser;
     }
 
-    private void pushDataListUser(){
-        List<User> a = new ArrayList<>();
-        a.add(new User("Phạm Văn Phương","0398797284","123456"));
-        a.add(new User("Ngô Trung Hiếu","0398797281","123456"));
-        a.add(new User("Lê Mạnh Bin","0398797284","123456"));
-        a.add(new User("Nguyễn Hoài Nhật","1234567899","123456"));
-        a.add(new User("Huyền Kim Lâm","05236547895","123456"));
-        a.add(new User("Lê Mạnh Hữu","0452145854","123456"));
-        a.add(new User("Lê Thành Đạt","03652123458","123456"));
-        a.add(new User("Nguyễn Huyền Lưu","14523658920","123456"));
-        a.add(new User("Nguyễn Thị Huyền","0124581251","123456"));
-        a.add(new User("Kim Chang Long","1245785214","123456"));
-        a.add(new User("Lê Quốc Long","0452145896","123456"));
-        a.add(new User("Nguyễn Thị Na Uy","03562145896","123456"));
-        a.add(new User("Lý La Long","0123456785","123456"));
-        a.add(new User("Lê Quốc Bảo","0425632145","123456"));
-        a.add(new User("Lê Thị Nhung","0365214526","123456"));
-        a.add(new User("Lê Hữu Hoài","0123456215","123456"));
-        a.add(new User("Phạm Hữu Gia","0689215621","123456"));
-        a.add(new User("Nguyễn Mạnh Lâm","0458921452","123456"));
-        a.add(new User("Lý Gia Kiệt","1452015921","123456"));
-        a.add(new User("Lê Thị Quyền","0123456896","123456"));
-        a.add(new User("Trương Đình Quyền","0394125638","123456"));
-        a.add(new User("Trần Việt Đức","0325412562","123456"));
 
-        for(User u : a){
-            dataUser.child(u.getPhoneNumber()).child(u.getFullName()+u.getPhoneNumber()+u.getPassWord());
-        }
-    }
-
-
-    private void showNotification1(){
-        showNotification(getActivity(),"ADmin","hello");
-
-    }
 
 }

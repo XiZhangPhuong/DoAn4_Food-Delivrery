@@ -5,16 +5,16 @@ import androidx.room.PrimaryKey;
 
 import java.util.List;
 
-@Entity(tableName = "TableUser")
+
 public class User {
-    @PrimaryKey(autoGenerate = true)
+
     private int ID;
     private String FullName;
     private String PhoneNumber;
     private String PassWord;
 
-    public User(String FullName, String PhoneNumber, String PassWord) {
-
+    public User(int ID,String FullName, String PhoneNumber, String PassWord) {
+        this.ID = ID;
         this.FullName = FullName;
         this.PhoneNumber = PhoneNumber;
         this.PassWord = PassWord;

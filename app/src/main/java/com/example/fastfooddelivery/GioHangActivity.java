@@ -1,6 +1,8 @@
 package com.example.fastfooddelivery;
 
 import static com.example.fastfooddelivery.Dialog.BottomSheetDialogFragment.list_home_to_cart;
+import static com.example.fastfooddelivery.Fragment.FavoriteFragment.list_cart_from_favorite;
+import static com.example.fastfooddelivery.Fragment.FavoriteFragment.listfood_fravorite;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -22,15 +24,15 @@ public class GioHangActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gio_hang);
 
-        if(list_home_to_cart.size()==0){
-            replaceFragmentCartIsEmpty(new fragment_cart_isempty());
+        if(list_home_to_cart.size()==0 && list_cart_from_favorite.size()==0){
+            replaceFragmentCart(new fragment_cart_isempty());
         }else{
-            replaceFragmentCartIsEmpty(new fragment_cart());
+            replaceFragmentCart(new fragment_cart());
         }
 
     }
 
-    private void replaceFragmentCartIsEmpty(Fragment fragment) {
+    private void replaceFragmentCart(Fragment fragment) {
           FragmentManager manager = getSupportFragmentManager();
           FragmentTransaction fragmentTransaction = manager.beginTransaction();
           fragmentTransaction.replace(R.id.fragment_cart,fragment);

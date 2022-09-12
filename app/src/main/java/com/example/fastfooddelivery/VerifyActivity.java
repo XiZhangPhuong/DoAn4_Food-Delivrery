@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fastfooddelivery.Database.UserDatabase;
 import com.example.fastfooddelivery.Model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,72 +34,72 @@ public class VerifyActivity extends AppCompatActivity {
         btnsendcode = findViewById(R.id.btn_sendcode);
         btn_verify_code = findViewById(R.id.btn_verify);
         tv_dontcode = findViewById(R.id.tv_dontcode);
-        btnsendcode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String phoneNumber = edt_phone.getText().toString().trim();
-                try {
-                    User u = UserDatabase.getInstance(VerifyActivity.this).userDAO().checkPhone(phoneNumber);
-                    if (!u.getPhoneNumber().equals(phoneNumber)) {
-                        Toast.makeText(VerifyActivity.this, "Khong co dien thoai nay", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                }catch (Exception e){
-                    Toast.makeText(VerifyActivity.this, "Khong co dien thoai nay", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (phoneNumber.isEmpty() || phoneNumber.length() < 10) {
-                    edt_phone.setError("please enter valid phone");
-                } else {
-                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                            "+84" + phoneNumber, 60, TimeUnit.SECONDS, VerifyActivity.this,
-                            new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                                @Override
-                                public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                                    signInUser(phoneAuthCredential);
-                                }
+//        btnsendcode.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String phoneNumber = edt_phone.getText().toString().trim();
+//                try {
+//
+//                    if (!u.getPhoneNumber().equals(phoneNumber)) {
+//                        Toast.makeText(VerifyActivity.this, "Khong co dien thoai nay", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+//                }catch (Exception e){
+//                    Toast.makeText(VerifyActivity.this, "Khong co dien thoai nay", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if (phoneNumber.isEmpty() || phoneNumber.length() < 10) {
+//                    edt_phone.setError("please enter valid phone");
+//                } else {
+//                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
+//                            "+84" + phoneNumber, 60, TimeUnit.SECONDS, VerifyActivity.this,
+//                            new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+//                                @Override
+//                                public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+//                                    signInUser(phoneAuthCredential);
+//                                }
+//
+//                                @Override
+//                                public void onVerificationFailed(FirebaseException e) {
+//                                    edt_code.setError("Verification Failed!!");
+//                                }
+//
+//                                @Override
+//                                public void onCodeSent(final String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+//                                    super.onCodeSent(verificationId, forceResendingToken);
+//
+//                                    btn_verify_code.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//                                            String verificationCode = edt_code.getText().toString();
+//                                            if (verificationId.isEmpty()) return;
+//                                            //create a credential
+//                                            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, verificationCode);
+//                                            signInUser(credential);
+//                                        }
+//                                    });
+//                                }
+//                            }
+//                    );
+//                }
+//            }
+//        });
+//    }
 
-                                @Override
-                                public void onVerificationFailed(FirebaseException e) {
-                                    edt_code.setError("Verification Failed!!");
-                                }
-
-                                @Override
-                                public void onCodeSent(final String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                                    super.onCodeSent(verificationId, forceResendingToken);
-
-                                    btn_verify_code.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            String verificationCode = edt_code.getText().toString();
-                                            if (verificationId.isEmpty()) return;
-                                            //create a credential
-                                            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, verificationCode);
-                                            signInUser(credential);
-                                        }
-                                    });
-                                }
-                            }
-                    );
-                }
-            }
-        });
-    }
-
-    private void signInUser(PhoneAuthCredential phoneAuthCredential) {
-        FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
-                .addOnCompleteListener(new OnCompleteListener() {
-                    @Override
-                    public void onComplete(@NonNull Task task) {
-                        if (task.isSuccessful()) {
-                            Intent intent = new Intent(VerifyActivity.this, UpdatePasswordActivity.class);
-                            intent.putExtra("phone_key",edt_phone.getText().toString().trim());
-                            startActivity(intent);
-                            finish();
-                        } else {
-//                             Log.d(TAG, "onComplete:"+task.getException().getLocalizedMessage());
-                        }
-                    }
-                });
+//    private void signInUser(PhoneAuthCredential phoneAuthCredential) {
+//        FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
+//                .addOnCompleteListener(new OnCompleteListener() {
+//                    @Override
+//                    public void onComplete(@NonNull Task task) {
+//                        if (task.isSuccessful()) {
+//                            Intent intent = new Intent(VerifyActivity.this, UpdatePasswordActivity.class);
+//                            intent.putExtra("phone_key",edt_phone.getText().toString().trim());
+//                            startActivity(intent);
+//                            finish();
+//                        } else {
+////                             Log.d(TAG, "onComplete:"+task.getException().getLocalizedMessage());
+//                        }
+//                    }
+//                });
     }
 }

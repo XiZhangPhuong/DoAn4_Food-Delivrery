@@ -4,6 +4,7 @@ import static com.example.fastfooddelivery.Dialog.BottomSheetDialogFragment.list
 import static com.example.fastfooddelivery.Fragment.FavoriteFragment.list_cart_from_favorite;
 import static com.example.fastfooddelivery.Fragment.LoginFragment.KEY_OBJECT;
 import static com.example.fastfooddelivery.TEMP.listNoti;
+import static com.example.fastfooddelivery.TEMP.showNotification;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -110,11 +111,11 @@ public class fragment_cart extends Fragment {
             @Override
             public void onClick(View v) {
                 if(list.size() == 0) {
-                    Toast.makeText(getContext(), "Ban chua dat mon", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Giỏ hàng trống", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (edt_maps.getText().toString().equals("")){
-                    edt_maps.setError("Chua nhap dia chi");
+                    edt_maps.setError("Bạn chưa nhập địa chỉ");
                     edt_maps.requestFocus();
                     return;
                 }
@@ -136,6 +137,7 @@ public class fragment_cart extends Fragment {
                 new AlertDialog.Builder(getContext()).setMessage(mess).setTitle("Warring").setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
                         list.clear();
                         list_cart_from_favorite.clear();
                         list_home_to_cart.clear();
@@ -150,6 +152,9 @@ public class fragment_cart extends Fragment {
                                 String key = dataListOrder.push().getKey();
                                 Order order = new Order(key,user.getFullName(),sum,edt_maps.getText().toString(),1,messtemp,false);
                                 dataListOrder.child(order.getId()).setValue(order);
+                                String title = "Đang chờ tài xế xác nhận";
+                                String mess  ="Tổng đơn hàng của bạn là : "+order.getPrice();
+                                showNotification(getContext(),title,mess);
                             }
                         });
 

@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,7 +34,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     @NonNull
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
-        return new CartViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_giohang,parent,false));
+        return new CartViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cart,parent,false));
     }
 
     @Override
@@ -68,18 +69,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     public class CartViewHolder extends RecyclerView.ViewHolder{
+
         private CircleImageView img_cart_photo;
         private TextView tv_name_cart,tv_price_cart,tv_total_item,tv_number_cart;
-        private ImageButton imb_minus_cart,imb_plus_cart;
+       // private ImageButton imb_minus_cart,imb_plus_cart,imb_delete;
+        private ImageView imb_minus_cart,imb_plus_cart,imb_delete;
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
             img_cart_photo = itemView.findViewById(R.id.img_cart_photo);
             tv_name_cart = itemView.findViewById(R.id.tv_name_cart);
-//            tv_price_cart = itemView.findViewById(R.id.tv_price_cart);
+            tv_price_cart = itemView.findViewById(R.id.tv_price_cart);
             tv_total_item = itemView.findViewById(R.id.tv_total_item);
             tv_number_cart = itemView.findViewById(R.id.tv_number_cart);
             imb_minus_cart = itemView.findViewById(R.id.imb_minus_cart);
             imb_plus_cart = itemView.findViewById(R.id.imb_plus_cart);
+           // imb_delete  = itemView.findViewById(R.id.btn_Delete);
         }
     }
 }
